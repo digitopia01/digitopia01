@@ -28,8 +28,8 @@ window.addEventListener("scroll", () => {
     scroll = window.scrollY;
 
     if (
-      scroll >= window.innerHeight * 0.02 &&
-      scroll <= window.innerHeight * 0.04 &&
+      scroll >= window.innerHeight * 0.001 &&
+      scroll <= window.innerHeight * 0.08 &&
       currentpage === 0
     ) {
       isScrolling = true;
@@ -41,7 +41,7 @@ window.addEventListener("scroll", () => {
     }
 
     if (
-      scroll >= window.innerHeight * 1 &&
+      scroll >= window.innerHeight * 1.02 &&
       scroll <= window.innerHeight * 1.1 &&
       currentpage === 1
     ) {
