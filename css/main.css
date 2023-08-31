@@ -2,6 +2,10 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -19,10 +23,31 @@ a {
   text-decoration: none;
 }
 
+.navcircle {
+  display: inline-block;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-right: 10px;
+  margin-top: 1px;
+}
+
+.navon {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 80px !important;
+  border: 2px solid white;
+  margin-right: 10px;
+  margin-top: 1px;
+  padding: -20px;
+}
+
 .logo {
   position: fixed;
-  top: 15%;
-  left: 10%;
+  top: 5%;
+  left: 5%;
   z-index: 1000;
   width: 200px;
 }
@@ -76,40 +101,65 @@ a {
     transform: translateY(5px);
   }
 }
+.modal_scr {
+  background: rgba(238, 238, 238, 0.8078431373);
+  width: 30vw;
+  height: 10vw;
+  opacity: 0;
+  border-radius: 50px;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 1s ease;
+}
+
 header {
+  width: 240px;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
   background: transparent;
   position: fixed;
-  right: -3%;
+  right: -1%;
   transform: translate(-50%);
   z-index: 100;
 }
 header .nav {
   height: 100vh;
-  font-size: 18px;
+  font-size: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-weight: bolder;
+  font-weight: normal;
   text-transform: uppercase;
 }
 header .nav li {
-  margin-top: 110px;
+  margin-top: 50px;
+}
+header .nav li a {
+  display: flex;
+  align-items: center;
 }
 header .nav li:first-child {
   margin-top: 0;
 }
 header .nav li a {
   color: #fff;
-  transition: 1s;
-  border-radius: 10px;
-  padding: 20px 30px;
+  transition: 0.3s ease-in-out;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 20px;
 }
 header .nav li a:hover {
-  color: rgb(43, 198, 226);
-  background: #fff;
+  background: rgba(255, 255, 255, 0.537254902);
 }
 
 #visual {
@@ -122,14 +172,15 @@ header .nav li a:hover {
   align-items: center;
 }
 #visual img {
-  width: 90%;
+  width: 70%;
+  margin: 0 0 0 11%;
   display: block;
 }
 
 #container .con1 {
   width: 70%;
   height: 100vh;
-  margin: 0 auto;
+  margin: 0 0 0 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;

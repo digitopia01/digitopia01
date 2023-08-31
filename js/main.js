@@ -2,6 +2,15 @@
 //     transform: rotateY(180deg);
 //   }
 
+let modal_scr = document.querySelector(".modal_scr");
+
+window.addEventListener("load", () => {
+  modal_scr.style.opacity = "1";
+  setTimeout(() => {
+    modal_scr.style.opacity = "0";
+  }, 2000);
+});
+
 let todevfront = document.querySelector(".unflipped"),
   todevback = document.querySelector(".flipped"),
   flipping = document.querySelector(".flipping");
@@ -27,7 +36,6 @@ let isScrolling = false;
 window.addEventListener("scroll", () => {
   if (!isScrolling) {
     let newScroll = window.scrollY;
-
     if (newScroll > scroll) {
       // Scrolling Down
       if (currentpage < 3) {
@@ -76,43 +84,125 @@ window.onscroll = () => {
 };
 
 // Top button click event to scroll to top smoothly
+
 topbutton.onclick = () => {
   window.scrollTo({
-    top: 0,
+    top: (0, 0),
     behavior: "smooth",
   });
 };
+
 //nav buttons animation
 
 function navcolor() {
   nav.forEach((link) => {
     link.addEventListener("mouseover", () => {
-      link.style.color = "rgb(43, 198, 226)";
+      link.style.borderBottom = "2px solid white";
+      link.style.transition = "none";
     });
 
     link.addEventListener("mouseleave", () => {
-      link.style.color = "#fff"; // Reset to white when mouse leaves
+      link.style.border = "none";
     });
   });
 }
 
+navcolor();
+
+//nav circle scroll style
+
+const navCircle = document.querySelectorAll(".navcircle");
+
+window.addEventListener("load", () => {
+  for (let i = 0; i < navCircle.length; i++) {
+    navCircle[i].classList.add("navcircle");
+  }
+  navCircle[0].classList.add("navon");
+  nav[0].style.fontSize = "20px";
+});
+
 window.addEventListener("scroll", () => {
   scroll = window.scrollY;
+  console.log(scroll);
 
   if (scroll > 175 && scroll < 1300) {
     nav.forEach((link) => {
       link.style.color = "#333";
     });
+    navCircle.forEach((link) => {
+      link.style.borderColor = "#333";
+    });
   } else {
     nav.forEach((link) => {
       link.style.color = "#fff";
+      navCircle.forEach((link) => {
+        link.style.borderColor = "#fff";
+      });
+    });
+  }
+
+  if (scroll >= 0 && scroll < window.innerHeight * 0.9) {
+    for (let i = 0; i < navCircle.length; i++) {
+      nav[i].style.fontSize = "12px";
+      navCircle[i].classList.add("navcircle");
+      navCircle[i].classList.remove("navon");
+    }
+    navCircle[0].classList.add("navon");
+    nav[0].style.fontSize = "20px";
+  } else if (
+    scroll > window.innerHeight * 0.91 &&
+    scroll < window.innerHeight * 1.9
+  ) {
+    for (let i = 0; i < navCircle.length; i++) {
+      nav[i].style.fontSize = "12px";
+      navCircle[i].classList.add("navcircle");
+      navCircle[i].classList.remove("navon");
+    }
+    navCircle[1].classList.add("navon");
+    nav[1].style.fontSize = "20px";
+  } else if (
+    scroll > window.innerHeight * 1.91 &&
+    scroll < window.innerHeight * 2.9
+  ) {
+    for (let i = 0; i < navCircle.length; i++) {
+      nav[i].style.fontSize = "12px";
+      navCircle[i].classList.add("navcircle");
+      navCircle[i].classList.remove("navon");
+    }
+    navCircle[2].classList.add("navon");
+    nav[2].style.fontSize = "20px";
+  } else if (
+    scroll > window.innerHeight * 2.91 &&
+    scroll < window.innerHeight * 3.9
+  ) {
+    for (let i = 0; i < navCircle.length; i++) {
+      navCircle[i].classList.add("navcircle");
+      navCircle[i].classList.remove("navon");
+      nav[i].style.fontSize = "12px";
+    }
+    navCircle[3].classList.add("navon");
+    nav[3].style.fontSize = "20px";
+  } else if (
+    scroll > window.innerHeight * 3.91 &&
+    scroll < window.innerHeight * 4.9
+  ) {
+    for (let i = 0; i < navCircle.length; i++) {
+      navCircle[i].classList.add("navcircle");
+      navCircle[i].classList.remove("navon");
+      nav[i].style.fontSize = "12px";
+    }
+    navCircle[4].classList.add("navon");
+    nav[4].style.fontSize = "20px";
+    nav.forEach((link) => {
+      link.style.color = "#333";
+    });
+    navCircle.forEach((link) => {
+      link.style.borderColor = "#333";
     });
   }
 });
 
 //nav click and scroll
-
-navcolor();
 
 nav[1].onclick = () => {
   window.scrollTo({
