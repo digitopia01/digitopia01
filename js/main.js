@@ -19,45 +19,47 @@ flipping.onmouseout = () => {
   todevback.style.opacity = "0";
 };
 
+//scroll to page move
+
 let currentpage = 0;
 let isScrolling = false;
-let scroll;
 
 window.addEventListener("scroll", () => {
   if (!isScrolling) {
-    scroll = window.scrollY;
+    let newScroll = window.scrollY;
 
-    if (
-      scroll >= window.innerHeight * 0.001 &&
-      scroll <= window.innerHeight * 0.08 &&
-      currentpage === 0
-    ) {
-      isScrolling = true;
-      window.scrollBy({
-        top: window.innerHeight,
-        behavior: "smooth",
-      });
-      currentpage = 1;
+    if (newScroll > scroll) {
+      // Scrolling Down
+      if (currentpage < 3) {
+        let nextPage = currentpage + 1;
+        scrollToPage(nextPage);
+      }
+    } else if (newScroll < scroll) {
+      // Scrolling Up
+      if (currentpage > 0) {
+        let previousPage = currentpage - 1;
+        scrollToPage(previousPage);
+      }
     }
 
-    if (
-      scroll >= window.innerHeight * 1.02 &&
-      scroll <= window.innerHeight * 1.1 &&
-      currentpage === 1
-    ) {
-      isScrolling = true;
-      window.scrollBy({
-        top: window.innerHeight,
-        behavior: "smooth",
-      });
-      currentpage = 2;
-    }
-
-    setTimeout(() => {
-      isScrolling = false;
-    }, 1000);
+    scroll = newScroll;
   }
 });
+
+function scrollToPage(pageNumber) {
+  isScrolling = true;
+  window.scrollTo({
+    top: window.innerHeight * pageNumber,
+    behavior: "smooth",
+  });
+  currentpage = pageNumber;
+
+  setTimeout(() => {
+    isScrolling = false;
+  }, 1000);
+}
+
+//definition topbutton, nav
 
 let topbutton = document.querySelector(".top"),
   nav = document.querySelectorAll(".navA");
@@ -73,25 +75,40 @@ window.onscroll = () => {
   }
 };
 
+// Top button click event to scroll to top smoothly
+topbutton.onclick = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 //nav buttons animation
 
 function navcolor() {
-  for (i = 0; i < nav.length; i++) {
-    nav[i].onmouseover = () => {
-      nav[i].style.color = "rgb(43, 198, 226);";
-    };
-  }
+  nav.forEach((link) => {
+    link.addEventListener("mouseover", () => {
+      link.style.color = "rgb(43, 198, 226)";
+    });
+
+    link.addEventListener("mouseleave", () => {
+      link.style.color = "#fff"; // Reset to white when mouse leaves
+    });
+  });
 }
 
-if (scroll > 175 && scroll < 1300) {
-  for (i = 0; i < nav.length; i++) {
-    nav[i].style.color = "#333";
+window.addEventListener("scroll", () => {
+  scroll = window.scrollY;
+
+  if (scroll > 175 && scroll < 1300) {
+    nav.forEach((link) => {
+      link.style.color = "#333";
+    });
+  } else {
+    nav.forEach((link) => {
+      link.style.color = "#fff";
+    });
   }
-} else {
-  for (i = 0; i < nav.length; i++) {
-    nav[i].style.color = "#fff";
-  }
-}
+});
 
 //nav click and scroll
 
