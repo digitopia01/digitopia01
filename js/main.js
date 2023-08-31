@@ -28,6 +28,31 @@ flipping.onmouseout = () => {
   todevback.style.opacity = "0";
 };
 
+//flipping 2
+
+let toreviewfront = document.querySelector(".unflipped2"),
+  toreviewback = document.querySelector(".flipped2"),
+  flipping2 = document.querySelector(".flipping2"),
+  con3bg = document.querySelector(".con3"),
+  con3Description = document.querySelector(".con3_description");
+
+flipping2.onmouseover = () => {
+  flipping2.style.transform = "rotateY(180deg)";
+  toreviewfront.style.opacity = "0";
+  toreviewback.style.display = "inline-block";
+  toreviewback.style.opacity = "1";
+  con3bg.style.background = "url(../img/엄지척.svg) no-repeat 60% 60%/40%";
+  con3Description.style.opacity = "0";
+};
+flipping2.onmouseout = () => {
+  flipping2.style.transform = "rotateY(0deg)";
+  toreviewfront.style.opacity = "1";
+  toreviewback.style.display = "inline-block";
+  toreviewback.style.opacity = "0";
+  con3bg.style.background = "url(../img/엄지척.svg) no-repeat -40% 60%/40%";
+  con3Description.style.opacity = "1";
+};
+
 //scroll to page move
 
 let currentpage = 0;
@@ -193,6 +218,12 @@ window.addEventListener("scroll", () => {
     }
     navCircle[4].classList.add("navon");
     nav[4].style.fontSize = "20px";
+  }
+});
+
+window.addEventListener("scroll", () => {
+  scroll = window.scrollY;
+  if (scroll > window.innerHeight * 2.5 && scroll < window.innerHeight * 3.5) {
     nav.forEach((link) => {
       link.style.color = "#333";
     });
