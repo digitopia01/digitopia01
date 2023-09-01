@@ -3,8 +3,16 @@
 //   }
 
 let modal_scr = document.querySelector(".modal_scr");
+//nav circle scroll style
+
+const navCircle = document.querySelectorAll(".navcircle");
 
 window.addEventListener("load", () => {
+  for (let i = 0; i < navCircle.length; i++) {
+    navCircle[i].classList.add("navcircle");
+  }
+  navCircle[0].classList.add("navon");
+  nav[0].style.fontSize = "20px";
   modal_scr.style.opacity = "1";
   setTimeout(() => {
     modal_scr.style.opacity = "0";
@@ -68,13 +76,13 @@ window.addEventListener("scroll", () => {
     if (newScroll > scroll) {
       // Scrolling Down
       if (currentpage < 3) {
-        let nextPage = currentpage + 1;
+        let nextPage = currentpage + 1.02;
         scrollToPage(nextPage);
       }
     } else if (newScroll < scroll) {
       // Scrolling Up
       if (currentpage > 0) {
-        let previousPage = currentpage - 1;
+        let previousPage = currentpage - 1.02;
         scrollToPage(previousPage);
       }
     }
@@ -138,18 +146,6 @@ function navcolor() {
 
 navcolor();
 
-//nav circle scroll style
-
-const navCircle = document.querySelectorAll(".navcircle");
-
-window.addEventListener("load", () => {
-  for (let i = 0; i < navCircle.length; i++) {
-    navCircle[i].classList.add("navcircle");
-  }
-  navCircle[0].classList.add("navon");
-  nav[0].style.fontSize = "20px";
-});
-
 window.addEventListener("scroll", () => {
   scroll = window.scrollY;
   console.log(scroll);
@@ -195,11 +191,9 @@ window.addEventListener("scroll", () => {
   ) {
     for (let i = 0; i < navCircle.length; i++) {
       nav[i].style.fontSize = "12px";
-      navCircle[i].classList.add("navcircle");
+      navCircle[i].classList.remove("navcircle");
       navCircle[i].classList.remove("navon");
     }
-    navCircle[2].classList.add("navon");
-    nav[2].style.fontSize = "20px";
   } else if (
     scroll > window.innerHeight * 2.91 &&
     scroll < window.innerHeight * 3.9
@@ -209,8 +203,8 @@ window.addEventListener("scroll", () => {
       navCircle[i].classList.remove("navon");
       nav[i].style.fontSize = "12px";
     }
-    navCircle[3].classList.add("navon");
-    nav[3].style.fontSize = "20px";
+    navCircle[2].classList.add("navon");
+    nav[2].style.fontSize = "20px";
   } else if (
     scroll > window.innerHeight * 3.91 &&
     scroll < window.innerHeight * 4.9
@@ -220,8 +214,8 @@ window.addEventListener("scroll", () => {
       navCircle[i].classList.remove("navon");
       nav[i].style.fontSize = "12px";
     }
-    navCircle[4].classList.add("navon");
-    nav[4].style.fontSize = "20px";
+    navCircle[3].classList.add("navon");
+    nav[3].style.fontSize = "20px";
   }
 });
 
@@ -239,9 +233,33 @@ window.addEventListener("scroll", () => {
 
 //nav click and scroll
 
+nav[0].onclick = () => {
+  window.scrollTo({
+    top: window.innerHeight * 0,
+    behavior: "smooth",
+  });
+};
 nav[1].onclick = () => {
   window.scrollTo({
-    top: window.innerHeight,
+    top: window.innerHeight * 1,
+    behavior: "smooth",
+  });
+};
+nav[2].onclick = () => {
+  window.scrollTo({
+    top: window.innerHeight * 3,
+    behavior: "smooth",
+  });
+};
+nav[3].onclick = () => {
+  window.scrollTo({
+    top: window.innerHeight * 4,
+    behavior: "smooth",
+  });
+};
+nav[4].onclick = () => {
+  window.scrollTo({
+    top: window.innerHeight * 5,
     behavior: "smooth",
   });
 };
