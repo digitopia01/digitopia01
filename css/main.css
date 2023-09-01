@@ -1,4 +1,3 @@
-@charset "UTF-8";
 html:focus-within {
   scroll-behavior: smooth;
 }
@@ -120,6 +119,14 @@ a {
   justify-content: center;
   align-items: center;
   transition: 1s ease;
+}
+
+.thumbup {
+  background: url(../img/thumb.svg) no-repeat 60% 60%/40%;
+}
+
+.thumbdown {
+  background: url(../img/thumb.svg) no-repeat -40% 60%/40%;
 }
 
 header {
@@ -279,6 +286,7 @@ header .nav li a:hover {
   width: 65%;
   text-align: center;
   padding: 50px 0;
+  font-size: 20px;
 }
 #container .con2 {
   position: relative;
@@ -304,12 +312,11 @@ header .nav li a:hover {
   justify-content: center;
   align-items: center;
   position: relative;
-  background: url(../img/엄지척.svg) no-repeat -40% 60%/40%;
   transition: 1s ease-in-out;
 }
 #container .con3 .con3_description {
   margin-right: 200px;
-  width: 20%;
+  width: 22%;
   height: 60%;
   display: flex;
   flex-direction: column;
@@ -318,7 +325,7 @@ header .nav li a:hover {
   text-align: center;
   transition: 0.5s ease-in-out;
   font-size: 20px;
-  transform: translate(-20px);
+  transform: translate(-15px);
 }
 #container .con3 .con3_texts {
   width: 40%;

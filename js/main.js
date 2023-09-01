@@ -36,21 +36,25 @@ let toreviewfront = document.querySelector(".unflipped2"),
   con3bg = document.querySelector(".con3"),
   con3Description = document.querySelector(".con3_description");
 
+con3bg.classList.add("thumbdown");
+
 flipping2.onmouseover = () => {
   flipping2.style.transform = "rotateY(180deg)";
   toreviewfront.style.opacity = "0";
   toreviewback.style.display = "inline-block";
   toreviewback.style.opacity = "1";
-  con3bg.style.background = "url(../img/엄지척.svg) no-repeat 60% 60%/40%";
   con3Description.style.opacity = "0";
+  con3bg.classList.remove("thumbdown");
+  con3bg.classList.add("thumbup");
 };
 flipping2.onmouseout = () => {
   flipping2.style.transform = "rotateY(0deg)";
   toreviewfront.style.opacity = "1";
   toreviewback.style.display = "inline-block";
   toreviewback.style.opacity = "0";
-  con3bg.style.background = "url(../img/엄지척.svg) no-repeat -40% 60%/40%";
   con3Description.style.opacity = "1";
+  con3bg.classList.add("thumbdown");
+  con3bg.classList.remove("thumbup");
 };
 
 //scroll to page move
