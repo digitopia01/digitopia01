@@ -1,7 +1,3 @@
-// &:hover {
-//     transform: rotateY(180deg);
-//   }
-
 let modal_scr = document.querySelector(".modal_scr");
 //nav circle scroll style
 
@@ -70,26 +66,26 @@ flipping2.onmouseout = () => {
 let currentpage = 0;
 let isScrolling = false;
 
-window.addEventListener("scroll", () => {
-  if (!isScrolling) {
-    let newScroll = window.scrollY;
-    if (newScroll > scroll) {
-      // Scrolling Down
-      if (currentpage < 3) {
-        let nextPage = currentpage + 1.02;
-        scrollToPage(nextPage);
-      }
-    } else if (newScroll < scroll) {
-      // Scrolling Up
-      if (currentpage > 0) {
-        let previousPage = currentpage - 1.02;
-        scrollToPage(previousPage);
-      }
-    }
+// window.addEventListener("scroll", () => {
+//   if (!isScrolling) {
+//     let newScroll = window.scrollY;
+//     if (newScroll > scroll) {
+//       // Scrolling Down
+//       if (currentpage < 3) {
+//         let nextPage = currentpage + 1.02;
+//         scrollToPage(nextPage);
+//       }
+//     } else if (newScroll < scroll) {
+//       // Scrolling Up
+//       if (currentpage > 0) {
+//         let previousPage = currentpage - 1.02;
+//         scrollToPage(previousPage);
+//       }
+//     }
 
-    scroll = newScroll;
-  }
-});
+//     scroll = newScroll;
+//   }
+// });
 
 function scrollToPage(pageNumber) {
   isScrolling = true;
@@ -132,14 +128,11 @@ topbutton.onclick = () => {
 //nav buttons animation
 
 function navcolor() {
-  nav.forEach((link) => {
-    link.addEventListener("mouseover", () => {
-      link.style.borderBottom = "2px solid white";
-      link.style.transition = "none";
-    });
+  nav.forEach((navbuts) => {
+    navbuts.addEventListener("mouseover", () => {});
 
-    link.addEventListener("mouseleave", () => {
-      link.style.border = "none";
+    navbuts.addEventListener("mouseleave", () => {
+      navbuts.style.border = "none";
     });
   });
 }
@@ -151,22 +144,22 @@ window.addEventListener("scroll", () => {
   console.log(scroll);
 
   if (scroll > 175 && scroll < 1300) {
-    nav.forEach((link) => {
-      link.style.color = "#333";
+    nav.forEach((navbuts) => {
+      navbuts.style.color = "#333";
     });
-    navCircle.forEach((link) => {
-      link.style.borderColor = "#333";
+    navCircle.forEach((navbuts) => {
+      navbuts.style.borderColor = "#333";
     });
   } else {
-    nav.forEach((link) => {
-      link.style.color = "#fff";
-      navCircle.forEach((link) => {
-        link.style.borderColor = "#fff";
+    nav.forEach((navbuts) => {
+      navbuts.style.color = "#fff";
+      navCircle.forEach((navbuts) => {
+        navbuts.style.borderColor = "#fff";
       });
     });
   }
 
-  if (scroll >= 0 && scroll < window.innerHeight * 0.9) {
+  if (scroll >= window.innerHeight * 0 && scroll < window.innerHeight * 0.9) {
     for (let i = 0; i < navCircle.length; i++) {
       nav[i].style.fontSize = "12px";
       navCircle[i].classList.add("navcircle");
@@ -221,45 +214,81 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("scroll", () => {
   scroll = window.scrollY;
-  if (scroll > window.innerHeight * 2.5 && scroll < window.innerHeight * 3.5) {
-    nav.forEach((link) => {
-      link.style.color = "#333";
+  if (scroll > window.innerHeight * 2.5 && scroll < window.innerHeight * 4.5) {
+    nav.forEach((navbuts) => {
+      navbuts.style.color = "#333";
     });
-    navCircle.forEach((link) => {
-      link.style.borderColor = "#333";
+    navCircle.forEach((navbuts) => {
+      navbuts.style.borderColor = "#333";
     });
   }
 });
 
 //nav click and scroll
+let clickscrollpageno = 0;
 
 nav[0].onclick = () => {
   window.scrollTo({
     top: window.innerHeight * 0,
     behavior: "smooth",
   });
+  clickscrollpageno = 0;
 };
 nav[1].onclick = () => {
-  window.scrollTo({
-    top: window.innerHeight * 1,
-    behavior: "smooth",
-  });
+  if (clickscrollpageno >= 2) {
+    setTimeout(() => {
+      window.scrollTo({
+        top: window.innerHeight * 2,
+        behavior: "smooth",
+      });
+    }, 100);
+    setTimeout(() => {
+      window.scrollTo({
+        top: window.innerHeight * 1,
+        behavior: "smooth",
+      });
+    }, 600);
+  } else {
+    window.scrollTo({
+      top: window.innerHeight * 1,
+      behavior: "smooth",
+    });
+  }
+  clickscrollpageno = 1;
 };
 nav[2].onclick = () => {
-  window.scrollTo({
-    top: window.innerHeight * 3,
-    behavior: "smooth",
-  });
+  if (clickscrollpageno < 2) {
+    setTimeout(() => {
+      window.scrollTo({
+        top: window.innerHeight * 2,
+        behavior: "smooth",
+      });
+    }, 100);
+    setTimeout(() => {
+      window.scrollTo({
+        top: window.innerHeight * 3,
+        behavior: "smooth",
+      });
+    }, 600);
+  } else {
+    window.scrollTo({
+      top: window.innerHeight * 3,
+      behavior: "smooth",
+    });
+  }
+  clickscrollpageno = 2;
 };
 nav[3].onclick = () => {
   window.scrollTo({
     top: window.innerHeight * 4,
     behavior: "smooth",
   });
+  clickscrollpageno = 3;
 };
 nav[4].onclick = () => {
   window.scrollTo({
     top: window.innerHeight * 5,
     behavior: "smooth",
   });
+  clickscrollpageno = 4;
 };
