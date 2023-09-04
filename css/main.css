@@ -434,7 +434,7 @@ header .nav li a:hover {
   padding: 40px;
 }
 #container .con4 .portfolio_divide > li:last-child {
-  padding: 40px 0px 40px 80px;
+  padding: 2.5vw 0 2.5vw 3.5vw;
   width: 40%;
   margin-right: 100px;
 }
@@ -449,7 +449,7 @@ header .nav li a:hover {
   align-items: center;
 }
 #container .con4 .portfolio_divide > li:last-child .skill_icons .percentage {
-  font-size: 25px;
+  font-size: 1.5vw;
 }
 #container .con4 .portfolio_divide > li:last-child .portbuts {
   display: flex;
@@ -466,23 +466,24 @@ header .nav li a:hover {
   align-items: center;
   border-radius: 50px;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 0.8vw;
   cursor: pointer;
 }
 #container .con4 .portfolio_divide > li:last-child .portbuts .port_buts:not(:last-child) {
   margin-right: 20px;
 }
 #container .con4 .portfolio_divide h3 {
-  font-size: 40px;
+  font-size: 2vw;
   text-transform: uppercase;
 }
 #container .con4 .portfolio_divide p {
-  font-size: 20px;
+  width: 90%;
+  font-size: 1vw;
   font-weight: bold;
   padding-left: 15px;
 }
 #container .con4 .portfolio_divide .pnum {
-  font-size: 25px;
+  font-size: 1.4vw;
 }
 #container .con4 .portfolio_divide .skill_icons {
   display: flex;
