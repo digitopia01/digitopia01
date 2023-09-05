@@ -181,11 +181,102 @@ header .nav li a:hover {
   align-items: center;
 }
 #visual img {
+  border-radius: 50px;
   width: 70%;
   margin: 0 0 0 11%;
   display: block;
+  filter: blur(10px);
+  transition: 2s ease-in-out;
+  -webkit-backdrop-filter: blur(0px);
+          backdrop-filter: blur(0px);
+  box-shadow: inset 0px 0px 0px 0px #111;
 }
 
+.vis_text {
+  text-transform: capitalize;
+  font-size: 50px;
+  text-align: center;
+  position: absolute;
+  top: 36%;
+  left: 35.5%;
+  color: white;
+  filter: blur(10px);
+  transition: 2s ease-in-out;
+}
+
+#container .con0 {
+  width: 100vw;
+  height: 100vh;
+  background: #1f2232;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#container .con0 > ul {
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
+}
+#container .con0 > ul > li:last-child {
+  width: 38.5%;
+  margin-left: 6%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#container .con0 > ul > li:last-child h3 {
+  color: #f4410b;
+  font-size: 24px;
+}
+#container .con0 > ul > li:last-child h2 {
+  font-size: 44px;
+}
+#container .con0 > ul > li:last-child .con0_underbar {
+  width: 150px;
+  height: 5px;
+  background: #f4410b;
+}
+#container .con0 > ul > li:last-child p {
+  font-size: 20px;
+  margin: 30px 0;
+}
+#container .con0 > ul > li:last-child .second {
+  margin: 0 0 30px 0;
+}
+#container .con0 > ul > li:last-child .introbox {
+  width: 100%;
+  border: 2px solid #f4410b;
+  border-radius: 10px;
+  padding: 40px;
+}
+#container .con0 > ul > li:last-child .introbox ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#container .con0 > ul > li:last-child .introbox ul li {
+  width: 49%;
+  font-size: 18px;
+}
+#container .con0 > ul > li:last-child .introbox ul li:not(:nth-child(7), :last-child) {
+  margin-bottom: 20px;
+}
+#container .con0 > ul > li:last-child .introbox ul .edudate {
+  font-size: 12px;
+}
+#container .con0 > ul > li:last-child .moreme {
+  background: #f4410b;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  width: 27%;
+  margin-top: 30px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
 #container .con1 {
   width: 70%;
   height: 100vh;
@@ -424,6 +515,7 @@ header .nav li a:hover {
   border-radius: 30px;
   width: 48%;
   height: 100%;
+  box-shadow: 5px 5px 10px 1px #bbb;
 }
 #container .con4 .portfolio_divide > li:first-child {
   display: flex;
@@ -495,4 +587,4 @@ header .nav li a:hover {
 }
 #container .con4 .portfolio_divide .skill_icons li img {
   width: 100%;
-}/*# sourceMappingURL=main.css.map */
+}

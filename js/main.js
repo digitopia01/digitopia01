@@ -1,3 +1,15 @@
+let vis_img = document.querySelector(".vis_img"),
+  vis_text = document.querySelector(".vis_text"),
+  vis_logo = document.querySelector(".vis_logo");
+
+window.onload = () => {
+  vis_img.style.filter = "blur(0)";
+  vis_img.style.boxShadow = "inset 5px 5px 20px 20px #000";
+  vis_img.style.backdropFilter = "blur(10px)";
+  vis_text.style.filter = "blur(0)";
+  vis_text.style.color = "#111";
+};
+
 let modal_scr = document.querySelector(".modal_scr");
 //nav circle scroll style
 
@@ -143,7 +155,7 @@ window.addEventListener("scroll", () => {
   scroll = window.scrollY;
   console.log(scroll);
 
-  if (scroll > 175 && scroll < 1300) {
+  if (scroll > 1325 && scroll < 2300) {
     nav.forEach((navbuts) => {
       navbuts.style.color = "#333";
     });
@@ -158,6 +170,21 @@ window.addEventListener("scroll", () => {
       });
     });
   }
+
+  window.addEventListener("scroll", () => {
+    scroll = window.scrollY;
+    if (
+      scroll > window.innerHeight * 3.5 &&
+      scroll < window.innerHeight * 5.5
+    ) {
+      nav.forEach((navbuts) => {
+        navbuts.style.color = "#333";
+      });
+      navCircle.forEach((navbuts) => {
+        navbuts.style.borderColor = "#333";
+      });
+    }
+  });
 
   if (scroll >= window.innerHeight * 0 && scroll < window.innerHeight * 0.9) {
     for (let i = 0; i < navCircle.length; i++) {
@@ -187,6 +214,8 @@ window.addEventListener("scroll", () => {
       navCircle[i].classList.remove("navcircle");
       navCircle[i].classList.remove("navon");
     }
+    navCircle[2].classList.add("navon");
+    nav[2].style.fontSize = "20px";
   } else if (
     scroll > window.innerHeight * 2.91 &&
     scroll < window.innerHeight * 3.9
@@ -209,18 +238,17 @@ window.addEventListener("scroll", () => {
     }
     navCircle[3].classList.add("navon");
     nav[3].style.fontSize = "20px";
-  }
-});
-
-window.addEventListener("scroll", () => {
-  scroll = window.scrollY;
-  if (scroll > window.innerHeight * 2.5 && scroll < window.innerHeight * 4.5) {
-    nav.forEach((navbuts) => {
-      navbuts.style.color = "#333";
-    });
-    navCircle.forEach((navbuts) => {
-      navbuts.style.borderColor = "#333";
-    });
+  } else if (
+    scroll > window.innerHeight * 4.91 &&
+    scroll < window.innerHeight * 5.9
+  ) {
+    for (let i = 0; i < navCircle.length; i++) {
+      navCircle[i].classList.add("navcircle");
+      navCircle[i].classList.remove("navon");
+      nav[i].style.fontSize = "12px";
+    }
+    navCircle[4].classList.add("navon");
+    nav[4].style.fontSize = "20px";
   }
 });
 
@@ -235,60 +263,67 @@ nav[0].onclick = () => {
   clickscrollpageno = 0;
 };
 nav[1].onclick = () => {
-  if (clickscrollpageno >= 2) {
-    setTimeout(() => {
-      window.scrollTo({
-        top: window.innerHeight * 2,
-        behavior: "smooth",
-      });
-    }, 100);
-    setTimeout(() => {
-      window.scrollTo({
-        top: window.innerHeight * 1,
-        behavior: "smooth",
-      });
-    }, 600);
-  } else {
-    window.scrollTo({
-      top: window.innerHeight * 1,
-      behavior: "smooth",
-    });
-  }
-  clickscrollpageno = 1;
+  window.scrollTo({
+    top: window.innerHeight * 1,
+    behavior: "smooth",
+  });
+  clickscrollpageno = 0;
 };
 nav[2].onclick = () => {
-  if (clickscrollpageno < 2) {
-    setTimeout(() => {
-      window.scrollTo({
-        top: window.innerHeight * 2,
-        behavior: "smooth",
-      });
-    }, 100);
+  if (clickscrollpageno >= 3) {
     setTimeout(() => {
       window.scrollTo({
         top: window.innerHeight * 3,
         behavior: "smooth",
       });
+    }, 100);
+    setTimeout(() => {
+      window.scrollTo({
+        top: window.innerHeight * 2,
+        behavior: "smooth",
+      });
     }, 600);
   } else {
     window.scrollTo({
-      top: window.innerHeight * 3,
+      top: window.innerHeight * 2,
       behavior: "smooth",
     });
   }
   clickscrollpageno = 2;
 };
 nav[3].onclick = () => {
+  if (clickscrollpageno < 3) {
+    setTimeout(() => {
+      window.scrollTo({
+        top: window.innerHeight * 3,
+        behavior: "smooth",
+      });
+    }, 100);
+    setTimeout(() => {
+      window.scrollTo({
+        top: window.innerHeight * 4,
+        behavior: "smooth",
+      });
+    }, 600);
+  } else {
+    window.scrollTo({
+      top: window.innerHeight * 4,
+      behavior: "smooth",
+    });
+  }
+  clickscrollpageno = 3;
+};
+nav[3].onclick = () => {
   window.scrollTo({
     top: window.innerHeight * 4,
     behavior: "smooth",
   });
-  clickscrollpageno = 3;
+  clickscrollpageno = 4;
 };
 nav[4].onclick = () => {
   window.scrollTo({
     top: window.innerHeight * 5,
     behavior: "smooth",
   });
-  clickscrollpageno = 4;
+  clickscrollpageno = 5;
 };
