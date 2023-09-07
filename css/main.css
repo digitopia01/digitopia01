@@ -588,3 +588,71 @@ header .nav li a:hover {
 #container .con4 .portfolio_divide .skill_icons li img {
   width: 100%;
 }
+#container .con5 {
+  background: #202232;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#container .con5 .con5wrap {
+  width: 82vw;
+  height: 75vh;
+  border: 10px solid #f4410b;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container .con5 .con5wrap .division {
+  width: 50%;
+  text-align: center;
+  transform: translate(100px);
+}
+#container .con5 .con5wrap .division h2 {
+  font-size: 45px;
+  margin-bottom: 50px;
+}
+#container .con5 .con5wrap .rocket {
+  width: 700px;
+  position: absolute;
+  right: 7%;
+  top: 5%;
+  transform: rotate(-15deg);
+}
+#container .con5 .con5wrap .emailwrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 20px 20px 20px 170px;
+}
+#container .con5 .con5wrap .emailwrap img {
+  width: 50px;
+  margin-right: 30px;
+}
+#container .con5 .con5wrap .emailwrap h3 {
+  font-size: 26px;
+}
+#container .con5 .con5wrap .mobilewrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 20px 20px 50px 170px;
+}
+#container .con5 .con5wrap .mobilewrap img {
+  width: 50px;
+  margin-right: 30px;
+}
+#container .con5 .con5wrap .mobilewrap h3 {
+  font-size: 26px;
+}
+#container .con5 .con5wrap .will {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+#container .con5 .con5wrap p {
+  font-size: 10px;
+  color: rgb(198, 198, 73);
+}

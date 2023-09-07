@@ -249,6 +249,17 @@ window.addEventListener("scroll", () => {
     }
     navCircle[4].classList.add("navon");
     nav[4].style.fontSize = "20px";
+  } else if (
+    scroll > window.innerHeight * 5.91 &&
+    scroll < window.innerHeight * 6.9
+  ) {
+    for (let i = 0; i < navCircle.length; i++) {
+      navCircle[i].classList.add("navcircle");
+      navCircle[i].classList.remove("navon");
+      nav[i].style.fontSize = "12px";
+    }
+    navCircle[5].classList.add("navon");
+    nav[5].style.fontSize = "20px";
   }
 });
 
@@ -276,13 +287,13 @@ nav[2].onclick = () => {
         top: window.innerHeight * 3,
         behavior: "smooth",
       });
-    }, 100);
+    });
     setTimeout(() => {
       window.scrollTo({
         top: window.innerHeight * 2,
         behavior: "smooth",
       });
-    }, 600);
+    });
   } else {
     window.scrollTo({
       top: window.innerHeight * 2,
@@ -326,4 +337,11 @@ nav[4].onclick = () => {
     behavior: "smooth",
   });
   clickscrollpageno = 5;
+};
+nav[5].onclick = () => {
+  window.scrollTo({
+    top: window.innerHeight * 6,
+    behavior: "smooth",
+  });
+  clickscrollpageno = 6;
 };
